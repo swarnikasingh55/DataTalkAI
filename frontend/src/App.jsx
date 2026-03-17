@@ -1,6 +1,8 @@
 import React from 'react';
-import AiDashboardGenerator from './AiDashboardGenerator';
+import { Dashboard } from './components/Dashboard';
 
-export default function App() {
-  return <AiDashboardGenerator />;
+function App() {
+  return <Dashboard />;
 }
+
+export default App;
