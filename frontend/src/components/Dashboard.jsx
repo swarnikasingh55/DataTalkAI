@@ -108,7 +108,7 @@ export const Dashboard = () => {
   }, [dashboardData, sessionToken, chatMessages]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-dark">
       <Header uploadedFile={uploadedFile} />
 
       <main className="mx-auto max-w-7xl px-6 py-8 sm:px-10">

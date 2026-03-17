@@ -12,15 +12,15 @@ export const SuccessAlert = ({ message, onDismiss, duration = 5000 }) => {
   if (!message) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 rounded-lg border border-green-200 bg-green-50 p-4 shadow-lg max-w-sm animate-in slide-in-from-bottom">
+    <div className="fixed bottom-4 right-4 rounded-lg border border-green-500/50 bg-green-900/30 p-4 shadow-lg max-w-sm animate-in slide-in-from-bottom backdrop-blur-sm">
       <div className="flex items-start gap-3">
-        <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+        <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-400 mt-0.5" />
         <div className="flex-1">
-          <p className="text-sm font-medium text-green-900">{message}</p>
+          <p className="text-sm font-medium text-green-200">{message}</p>
         </div>
         <button
           onClick={onDismiss}
-          className="flex-shrink-0 text-green-600 hover:text-green-700"
+          className="flex-shrink-0 text-green-400 hover:text-green-300 transition"
         >
           <X className="h-5 w-5" />
         </button>

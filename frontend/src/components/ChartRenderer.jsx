@@ -19,7 +19,7 @@ import {
   Cell,
 } from 'recharts';
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4', '#f97316'];
+const COLORS = ['#60a5fa', '#34d399', '#fbbf24', '#f87171', '#a78bfa', '#f472b6', '#22d3ee', '#fb923c'];
 
 export const ChartRenderer = ({ chart, data }) => {
   if (!chart || !data || data.length === 0) {
@@ -38,15 +38,17 @@ export const ChartRenderer = ({ chart, data }) => {
       case 'bar':
         return (
           <BarChart {...commonProps}>
-            <CartesianGrid stroke="#f1f5f9" strokeDasharray="3 3" />
-            <XAxis dataKey={x_key} angle={-45} textAnchor="end" height={80} stroke="#94a3b8" />
-            <YAxis stroke="#94a3b8" />
+            <CartesianGrid stroke="#334155" strokeDasharray="3 3" />
+            <XAxis dataKey={x_key} angle={-45} textAnchor="end" height={80} stroke="#64748b" />
+            <YAxis stroke="#64748b" />
             <Tooltip
-              cursor={{ fill: '#f8fafc' }}
+              cursor={{ fill: '#1e293b' }}
               contentStyle={{
                 borderRadius: '8px',
-                border: '1px solid #e2e8f0',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                border: '1px solid #475569',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+                backgroundColor: '#1e293b',
+                color: '#f1f5f9'
               }}
             />
             {category_key ? (
@@ -178,15 +180,17 @@ export const ChartRenderer = ({ chart, data }) => {
       default:
         return (
           <BarChart {...commonProps}>
-            <CartesianGrid stroke="#f1f5f9" strokeDasharray="3 3" />
-            <XAxis dataKey={x_key} angle={-45} textAnchor="end" height={80} stroke="#94a3b8" />
-            <YAxis stroke="#94a3b8" />
+            <CartesianGrid stroke="#334155" strokeDasharray="3 3" />
+            <XAxis dataKey={x_key} angle={-45} textAnchor="end" height={80} stroke="#64748b" />
+            <YAxis stroke="#64748b" />
             <Tooltip
-              cursor={{ fill: '#f8fafc' }}
+              cursor={{ fill: '#1e293b' }}
               contentStyle={{
                 borderRadius: '8px',
-                border: '1px solid #e2e8f0',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                border: '1px solid #475569',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+                backgroundColor: '#1e293b',
+                color: '#f1f5f9'
               }}
             />
             <Bar dataKey={y_key} fill={COLORS[0]} />
@@ -196,8 +200,8 @@ export const ChartRenderer = ({ chart, data }) => {
   };
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">{title}</h3>
+    <div className="rounded-xl border border-slate-700 bg-slate-800/50 backdrop-blur-sm p-6 shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-slate-100 mb-4">{title}</h3>
       <ResponsiveContainer width="100%" height={320}>
         {renderChart()}
       </ResponsiveContainer>

@@ -12,12 +12,12 @@ export const DataTable = ({ data, sql }) => {
   const displayRows = expanded ? data : data.slice(0, 5);
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+    <div className="rounded-xl border border-slate-700 bg-slate-800/50 backdrop-blur-sm p-6 shadow-lg">
       <div className="mb-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Query Details</h3>
+        <h3 className="text-lg font-semibold text-slate-100 mb-3">Query Details</h3>
         {sql && (
-          <div className="rounded-lg bg-gray-900 p-4 overflow-x-auto">
-            <p className="text-xs font-mono text-gray-300 whitespace-pre-wrap break-words">
+          <div className="rounded-lg bg-slate-900 p-4 overflow-x-auto border border-slate-700">
+            <p className="text-xs font-mono text-slate-300 whitespace-pre-wrap break-words">
               {sql}
             </p>
           </div>
@@ -27,11 +27,11 @@ export const DataTable = ({ data, sql }) => {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200 bg-gray-50">
+            <tr className="border-b border-slate-700 bg-slate-900/50">
               {columns.map((col) => (
                 <th
                   key={col}
-                  className="px-4 py-3 text-left font-semibold text-gray-900 whitespace-nowrap"
+                  className="px-4 py-3 text-left font-semibold text-slate-200 whitespace-nowrap"
                 >
                   {col}
                 </th>
@@ -42,10 +42,10 @@ export const DataTable = ({ data, sql }) => {
             {displayRows.map((row, idx) => (
               <tr
                 key={idx}
-                className="border-b border-gray-100 hover:bg-gray-50 transition"
+                className="border-b border-slate-700 hover:bg-slate-700/30 transition"
               >
                 {columns.map((col) => (
-                  <td key={`${idx}-${col}`} className="px-4 py-3 text-gray-700">
+                  <td key={`${idx}-${col}`} className="px-4 py-3 text-slate-300">
                     {formatValue(row[col])}
                   </td>
                 ))}
@@ -58,7 +58,7 @@ export const DataTable = ({ data, sql }) => {
       {data.length > 5 && (
         <button
           onClick={() => setExpanded(!expanded)}
-          className="mt-4 flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+          className="mt-4 flex items-center gap-2 rounded-lg border border-slate-600 bg-slate-900/30 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-900/60 hover:border-slate-500 transition backdrop-blur-sm"
         >
           <ChevronDown
             className={`h-4 w-4 transition ${expanded ? 'rotate-180' : ''}`}

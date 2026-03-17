@@ -30,10 +30,10 @@ export const QueryInput = ({ prompt, setPrompt, onSubmit, onUpload, isLoading })
   };
 
   return (
-    <section className="mb-8 rounded-xl border border-gray-200 bg-white p-8 shadow-md hover:shadow-lg transition-shadow">
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">Ask a Business Question</h2>
-      <p className="text-gray-600 mb-6">
-        Describe what you want to see in your dashboard, and AI will generate the perfect visualization for you.
+    <section className="mb-8 rounded-2xl border border-slate-700 bg-slate-800/50 backdrop-blur-sm p-8 shadow-xl hover:shadow-2xl transition-shadow">
+      <h2 className="text-3xl font-bold text-slate-100 mb-2">Ask a Business Question</h2>
+      <p className="text-slate-400 mb-6 text-lg">
+        Describe what you want to see, and AI will generate the perfect visualization instantly.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -43,12 +43,12 @@ export const QueryInput = ({ prompt, setPrompt, onSubmit, onUpload, isLoading })
             onChange={(e) => setPrompt(e.target.value)}
             placeholder="Example: Show me revenue by region for Q3 and highlight the top performer..."
             rows={3}
-            className="flex-1 rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
+            className="flex-1 rounded-xl border border-slate-600 bg-slate-900/50 px-4 py-3 text-slate-100 placeholder-slate-500 focus:border-blue-500 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition backdrop-blur-sm"
           />
           <button
             type="submit"
             disabled={isLoading || !prompt.trim()}
-            className="flex h-fit items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="flex h-fit items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 font-semibold text-white hover:from-blue-700 hover:to-cyan-700 active:from-blue-800 active:to-cyan-800 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg hover:shadow-blue-500/50"
           >
             {isLoading ? (
               <>
@@ -65,7 +65,7 @@ export const QueryInput = ({ prompt, setPrompt, onSubmit, onUpload, isLoading })
         </div>
 
         <div className="flex gap-2 flex-wrap">
-          <label className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer transition">
+          <label className="inline-flex items-center gap-2 rounded-lg border border-slate-600 bg-slate-900/30 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-900/50 hover:border-slate-500 cursor-pointer transition backdrop-blur-sm">
             <Upload className="h-4 w-4" />
             Upload CSV
           </label>
@@ -79,15 +79,15 @@ export const QueryInput = ({ prompt, setPrompt, onSubmit, onUpload, isLoading })
         </div>
       </form>
 
-      <div className="mt-6 pt-6 border-t border-gray-200">
-        <p className="text-sm font-semibold text-gray-700 mb-3">Try these examples:</p>
+      <div className="mt-6 pt-6 border-t border-slate-700">
+        <p className="text-sm font-semibold text-slate-300 mb-3">Try these examples:</p>
         <div className="flex flex-wrap gap-2">
           {exampleQueries.map((query) => (
             <button
               key={query}
               onClick={() => handleExampleClick(query)}
               disabled={isLoading}
-              className="rounded-full border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:border-gray-400 disabled:opacity-50 transition"
+              className="rounded-full border border-slate-600 bg-slate-900/30 px-4 py-2 text-sm text-slate-300 hover:bg-slate-900/60 hover:border-slate-500 hover:text-slate-200 disabled:opacity-50 transition backdrop-blur-sm"
             >
               {query}
             </button>
