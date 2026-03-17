@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataTalk AI</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Conversational Business Intelligence</p>
+          <h1>DataTalk AI</h1>
+          <p class="hero__copy">
+            Turn plain-English customer behavior questions into dashboards, insights, and interactive charts in seconds.
+          </p>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="query-panel card">
+          <div class="query-panel__header">
+            <div>
+              <h2>Ask a business question</h2>
+              <p>Try prompts about shopping preference, online spend, store visits, tech-savviness, or city tiers.</p>
+            </div>
+            <span id="status-pill" class="status-pill">Ready</span>
+          </div>
+
+          <div class="query-form">
+            <textarea
+              id="prompt-input"
+              rows="3"
+              placeholder="Compare average online spend by shopping preference and show which segment is highest."
+            ></textarea>
+            <div class="query-form__actions">
+              <button id="generate-btn" class="btn btn--primary">Generate Dashboard</button>
+              <label class="upload-btn">
+                <input id="csv-input" type="file" accept=".csv" />
+                Upload CSV
+              </label>
+            </div>
+          </div>
+
+          <div class="example-list">
+            <button class="chip" data-prompt="Compare average online spend by shopping preference.">Online spend by shopping preference</button>
+            <button class="chip" data-prompt="Show the distribution of customers by city tier.">Customer distribution by city tier</button>
+            <button class="chip" data-prompt="Compare average store visits by gender.">Store visits by gender</button>
+            <button class="chip" data-prompt="Show the relationship between tech savvy score and average online spend.">Tech savvy vs online spend</button>
+          </div>
+        </section>
+
+        <section class="summary-grid">
+          <article class="metric-card card">
+            <span class="metric-card__label">Rows Returned</span>
+            <strong id="metric-rows">0</strong>
+          </article>
+          <article class="metric-card card">
+            <span class="metric-card__label">Data Source</span>
+            <strong id="metric-source">Customer Behavior Dataset</strong>
+          </article>
+          <article class="metric-card card">
+            <span class="metric-card__label">Generated Insight</span>
+            <p id="insight-text">Your next dashboard insight will appear here.</p>
+          </article>
+        </section>
+
+        <section id="feedback-card" class="feedback hidden"></section>
+
+        <section class="dashboard-grid">
+          <article class="card chart-card">
+            <div class="chart-card__header">
+              <h3 id="chart-one-title">Primary Chart</h3>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="chart-one"></canvas>
+            </div>
+          </article>
+
+          <article class="card chart-card">
+            <div class="chart-card__header">
+              <h3 id="chart-two-title">Secondary Chart</h3>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="chart-two"></canvas>
+            </div>
+          </article>
+        </section>
+
+        <section class="card data-card">
+          <div class="data-card__header">
+            <h3>Query Details</h3>
+          </div>
+          <pre id="sql-output" class="sql-block">SQL will appear here.</pre>
+          <div class="table-wrap">
+            <table id="results-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+  </html>
